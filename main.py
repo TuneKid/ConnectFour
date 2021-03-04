@@ -73,7 +73,7 @@ def checkRow(board,player):
   return won
 
 def checkCol(board, player):
-  '''
+  
   numConsecutiveCol = 0
   rCol = 0
   #loop through rows
@@ -82,12 +82,11 @@ def checkCol(board, player):
   while rCol < N_COLS and not wonCol:
     
     cCol= 0
-    numConsecurive = 0
+    numConsecutiveCol = 0
     while cCol < N_ROWS and not wonCol: 
       if board[cCol][rCol] == player:
-        numConsecurive += 1
-        print("_________________________________________")
-        print("Detected player: {} at r: {} c: {} n: {}".format(player, rCol, cCol, numConsecutiveCol))
+        numConsecutiveCol += 1
+       
       else:
         numConsecutiveCol = 0
       wonCol = numConsecutiveCol >= 4
@@ -96,12 +95,37 @@ def checkCol(board, player):
       cCol += 1
     rCol += 1
   return wonCol
-  '''
-  return False
+  
+
 def checkLeftDiag(board,player):
   return False
 def checkRightDiag(board, player):
-  return False
+  numConsecutiveRightDiag = 0
+  rRightDiag = 0
+  #loop through rows
+  #Start at the beginning of each row, and set a counter for each character to the right
+  won = False
+  while rRightDiag < N_ROWS and not won:
+    
+    cRightDiag= 0
+    numConsecutiveRightDiag = 0
+    while cRightDiag < N_COLS and not won and rRightDiag < N_ROWS: 
+      if board[rRightDiag][cRightDiag] == player:
+        numConsecutiveRightDiag += 1
+        print("Detected player: {} at r: {} c: {} n: {}".format(player, rRightDiag, cRightDiag, numConsecutiveRightDiag))
+        print("__")
+        
+      else:
+        numConsecutiveRightDiag = 0
+      wonRightDiag = numConsecutiveRightDiag >=4
+      if wonRightDiag:
+        #Check diag logic goes here
+        print("Yessir")
+      cRightDiag += 1
+      rRightDiag += 1
+  return won
+
+
 def main():
   
   player = 'x'
