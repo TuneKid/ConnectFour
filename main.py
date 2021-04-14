@@ -99,119 +99,144 @@ def checkCol(board, player):
   
 
 def checkLeftDiag(board,player):
-  pass
+    rLeftDiag =  0
+    i = 0
+    #loop through rows
+    #Start at the beginning of each row, and set a counter for each character to the right
+    won = False
+    while rLeftDiag < N_ROWS and not won:
+    
+        cLeftDiag= 0
+        numConsecutiveRightDiag = 0
+        while cLeftDiag < N_COLS and not won and rLeftDiag < N_ROWS: 
+            if board[rLeftDiag][cLeftDiag] == player:
+                numConsecutiveRightDiag += 1
+                print("Detected player Right Diag: {} at r: {} c: {} n: {}".format(player, rLeftDiag, cLeftDiag, numConsecutiveRightDiag))
+                print("__")
+                
+            else:
+                numConsecutiveRightDiag = 0
+            wonRightDiag = numConsecutiveRightDiag >=4
+            if wonRightDiag:
+                #Check diag logic goes here
+                print("HooOooOoOOoOOoOoOOoOooOOoorRrRRRRrrrrRrrrRrRrrrrRrrrAAyAYAYYYyyyYYYyYYyYY player {} won!".format(player))
+            cLeftDiag += 1
+            rLeftDiag += 1
+            
+
+        i += 1
+        rLeftDiag = i
+
+
+
+    cLeftDiag = 1
+    i = cLeftDiag
+
+    while cLeftDiag < N_COLS and not won:
+    
+        rLeftDiag = 0
+        numConsecutiveRightDiag = 0
+        while cLeftDiag < N_COLS and not won and rLeftDiag < N_ROWS: 
+            if board[rLeftDiag][cLeftDiag] == player:
+                numConsecutiveRightDiag += 1
+                print("Detected player Right Diag: {} at r: {} c: {} n: {}".format(player, rLeftDiag, cLeftDiag, numConsecutiveRightDiag))
+                print("__")
+                
+            else:
+                numConsecutiveRightDiag = 0
+            wonRightDiag = numConsecutiveRightDiag >=4
+            if wonRightDiag:
+                #Check diag logic goes here
+                print("HooOooOoOOoOOoOoOOoOooOOoorRrRRRRrrrrRrrrRrRrrrrRrrrAAyAYAYYYyyyYYYyYYyYY player {} won!".format(player))
+            cLeftDiag += 1
+            rLeftDiag += 1
+            
+
+        i += 1
+        cLeftDiag = i
+
+    return won 
 def checkRightDiag(board, player):
-  rRightDiag = len(board) - 1
-  i = 0
-  #loop through rows
-  #Start at the beginning of each row, and set a counter for each character to the right
-  won = False
-  while rRightDiag >= 0 and not won:
+    rRightDiag = len(board) - 1
+    i = 0
+  
+    won = False
+    while rRightDiag >= 0 and not won:
     
-    cRightDiag= 0
-    numConsecutiveRightDiag = 0
-    while cRightDiag < N_COLS and not won and rRightDiag >= 0: 
-      if board[rRightDiag][cRightDiag] == player:
-        numConsecutiveRightDiag += 1
-        print("Detected player Right Diag: {} at r: {} c: {} n: {}".format(player, rRightDiag, cRightDiag, numConsecutiveRightDiag))
-        print("__")
-        
-      else:
+        cRightDiag= 0
         numConsecutiveRightDiag = 0
-      wonRightDiag = numConsecutiveRightDiag >=4
-      if wonRightDiag:
-        #Check diag logic goes here
-        print("HooOooOoOOoOOoOoOOoOooOOoorRrRRRRrrrrRrrrRrRrrrrRrrrAAyAYAYYYyyyYYYyYYyYY player {} won!".format(player))
-      cRightDiag += 1
-      rRightDiag -= 1
-      
+        while cRightDiag < N_COLS and not won and rRightDiag >= 0: 
+            if board[rRightDiag][cRightDiag] == player:
+                numConsecutiveRightDiag += 1
+            
+                print("__")
+                
+            else:
+                numConsecutiveRightDiag = 0
+            wonRightDiag = numConsecutiveRightDiag >=4
+            if wonRightDiag:
+                print("HooOooOoOOoOOoOoOOoOooOOoorRrRRRRrrrrRrrrRrRrrrrRrrrAAyAYAYYYyyyYYYyYYyYY player {} won!".format(player))
+            cRightDiag += 1
+            rRightDiag -= 1
+            
 
-    i += 1
-    rRightDiag = N_ROWS-1-i
+        i += 1
+        rRightDiag = N_ROWS-1-i
 
 
-  cRightDiag = 1
-  i = cRightDiag
-  #loop through rows
-  #Start at the beginning of each row, and set a counter for each character to the right
-  while cRightDiag<  N_COLS and not won:
-    
-    rRightDiag = N_ROWS-1
-    numConsecutiveRightDiag = 0
-    while cRightDiag < N_COLS and not won and rRightDiag >= 0: 
-      if board[rRightDiag][cRightDiag] == player:
-        numConsecutiveRightDiag += 1
-        print("Detected player Right Diag: {} at r: {} c: {} n: {}".format(player, rRightDiag, cRightDiag, numConsecutiveRightDiag))
-        print("__")
+    cRightDiag = 1
+    i = cRightDiag
+
+    #loop through rows
+    #Start at the beginning of each row, and set a counter for each character to the right
+    while cRightDiag<  N_COLS and not won:
         
-      else:
+        rRightDiag = N_ROWS-1
         numConsecutiveRightDiag = 0
-      wonRightDiag = numConsecutiveRightDiag >=4
-      if wonRightDiag:
-        #Check diag logic goes here
-        print("HooOooOoOOoOOoOoOOoOooOOoorRrRRRRrrrrRrrrRrRrrrrRrrrAAyAYAYYYyyyYYYyYYyYY player {} won!".format(player))
-      cRightDiag += 1
-      rRightDiag -= 1
-      
+        while cRightDiag < N_COLS and not won and rRightDiag >= 0: 
+            if board[rRightDiag][cRightDiag] == player:
+                numConsecutiveRightDiag += 1
+            
+                print("__")
+                
+            else:
+                numConsecutiveRightDiag = 0
+            wonRightDiag = numConsecutiveRightDiag >=4
+            if wonRightDiag:
+                #Check diag logic goes here
+                print("HooOooOoOOoOOoOoOOoOooOOoorRrRRRRrrrrRrrrRrRrrrrRrrrAAyAYAYYYyyyYYYyYYyYY player {} won!".format(player))
+            cRightDiag += 1
+            rRightDiag -= 1
+            
 
-    i += 1
-    cRightDiag = i
-  return won
+        i += 1
+        cRightDiag = i
+    return won
 
 
   
-''''
-def checkRightDiag2(board, player):
-  rRightDiag = 0
-  i = 0
-  #loop through rows
-  #Start at the beginning of each row, and set a counter for each character to the right
-  won = False
-  while rRightDiag >= 0 and not won:
-    
-    cRightDiag= 0
-    numConsecutiveRightDiag = 0
-    while cRightDiag < N_COLS and not won and rRightDiag >= 0: 
-      if board[rRightDiag][cRightDiag] == player:
-        numConsecutiveRightDiag += 1
-        print("Detected player Right Diag: {} at r: {} c: {} n: {}".format(player, rRightDiag, cRightDiag, numConsecutiveRightDiag))
-        print("__")
-        
-      else:
-        numConsecutiveRightDiag = 0
-      wonRightDiag = numConsecutiveRightDiag >=4
-      if wonRightDiag:
-        #Check diag logic goes here
-        print("Yessir")
-      cRightDiag += 1
-      rRightDiag -= 1
-    
-    i += 1
-    rRightDiag = N_ROWS-1-i
-    
-  return won
-
-'''
+  
+  
 def main():
-  
-  player = '#'
-  board = init()
-  print_board(board)
-  num_turns = 1
 
-  game_over = False
-  while not game_over and num_turns <= N_ROWS * N_COLS:
-    col = get_move(board, player)
-    board = make_move(board, player, col)
-    game_over = has_won(board, player)
-    player = "@" if player == "#" else "#"
-    num_turns += 1
-
-
+    player = '#'
+    board = init()
     print_board(board)
-  if not game_over:
-    print("Tie Game")
-  else:
-    print("Player {} wins!".format("o" if player == "x" else "x"))
+    num_turns = 1
+
+    game_over = False
+    while not game_over and num_turns <= N_ROWS * N_COLS:
+        col = get_move(board, player)
+        board = make_move(board, player, col)
+        game_over = has_won(board, player)
+        player = "@" if player == "#" else "#"
+        num_turns += 1
+
+
+        print_board(board)
+    if not game_over:
+        print("Tie Game")
+    else:
+        print("Player {} wins!".format("@" if player == "#" else "#"))
 main()
 
